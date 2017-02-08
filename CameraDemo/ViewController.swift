@@ -100,7 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //等比例缩小照片尺寸
         var height = 600 * originalImage.size.height / originalImage.size.width
         var newSize: CGSize = CGSize(width: 600.0,height: 800.0)
-        let scaledImage: UIImage = scaleImageSize(image: originalImage, newSize: newSize)
+        let scaledImage: UIImage = scaleImageResolution(image: originalImage, newSize: newSize)
         
         scaleLabel.text = "scale down"
         scaledResolution.text = "\(scaledImage.size.width) * \(scaledImage.size.height)"
@@ -115,7 +115,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //等比例缩小照片，缩略图展示
         height = 300 * originalImage.size.height / originalImage.size.width
         newSize = CGSize(width: 300.0,height: height)
-        let thumbnail: UIImage = scaleImageSize(image: originalImage, newSize: newSize)
+        let thumbnail: UIImage = scaleImageResolution(image: originalImage, newSize: newSize)
         
         let frame: CGRect = imageView.frame
         imageView.frame = CGRect(x: frame.origin.x,y: frame.origin.y,width: frame.size.width,height: height)
@@ -130,7 +130,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func scaleImageSize(image: UIImage, newSize: CGSize) -> UIImage {
+    func scaleImageResolution(image: UIImage, newSize: CGSize) -> UIImage {
         
         let oldWidth = image.size.width;
         let oldHeight = image.size.height;
